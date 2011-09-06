@@ -1,5 +1,8 @@
 ._*
 .DS_Store
+.project
+.settings*
 app/tmp/
-lib/Cake/Cache/
 app/Config/core.php
+app/Config/database.php
+lib/Cake/Cache/
