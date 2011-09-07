@@ -3,7 +3,8 @@
 	class UptimeShell extends Shell {
 		
 		var $tasks = array(
-			'GetResponse'
+			'GetResponse',
+			'GetIp'
 		);
 		
 		var $uses = array(
@@ -26,10 +27,27 @@
 					$this->GetResponse->execute( $Domain['Domain']['name'] ) 
 				);
 				
+				$this->setIpAddress(
+					$Domain['Domain']['id'], 
+					$this->GetIp->execute( $Domain['Domain']['name'] ) 
+				);
+				
 			}
 			
 		}
 		
+		//.. sets a domain record based on the resonse code provided.
+		private function setIpAddress($id, $IpAddress) {
+				
+			$Now = new DateTime;
+			
+			$this->data = $this->Domain->findById($id);
+			$this->data['Domain']['ip_address'] = $IpAddress;
+			$this->data['Domain']['updated'] = $Now->date;
+			
+			$this->Domain->save($this->data);
+			
+		}
 		
 		//.. sets a domain record based on the resonse code provided.
 		private function setResponseCode($id, $Code) {
