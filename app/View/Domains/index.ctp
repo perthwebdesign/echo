@@ -6,6 +6,7 @@
 			<th><?php echo $this->Paginator->sort('site_id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('current_response');?></th>
+			<th><?php echo $this->Paginator->sort('ip_address');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('updated');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
@@ -20,6 +21,7 @@
 		</td>
 		<td><?php echo h($domain['Domain']['name']); ?>&nbsp;</td>
 		<td><?php echo h($domain['Domain']['current_response']); ?>&nbsp;</td>
+		<td><?php echo h($domain['Domain']['ip_address']); ?>&nbsp;</td>
 		<td><?php echo h($domain['Domain']['created']); ?>&nbsp;</td>
 		<td><?php echo h($domain['Domain']['updated']); ?>&nbsp;</td>
 		<td class="actions">

@@ -21,6 +21,11 @@
 			<?php echo h($domain['Domain']['current_response']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Ip Address'); ?></dt>
+		<dd>
+			<?php echo h($domain['Domain']['ip_address']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Created'); ?></dt>
 		<dd>
 			<?php echo h($domain['Domain']['created']); ?>
