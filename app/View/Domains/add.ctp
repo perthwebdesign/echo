@@ -5,6 +5,7 @@
 	<?php
 		echo $this->Form->input('site_id');
 		echo $this->Form->input('name');
+		echo $this->Form->input('current_response');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

@@ -16,6 +16,11 @@
 			<?php echo h($domain['Domain']['name']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Current Response'); ?></dt>
+		<dd>
+			<?php echo h($domain['Domain']['current_response']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Created'); ?></dt>
 		<dd>
 			<?php echo h($domain['Domain']['created']); ?>
