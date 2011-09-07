@@ -4,8 +4,9 @@
 	    function execute( $URL ) {
 
 			$URL = preg_replace("/^http:\\/\\//", "", $URL);
-
-			return gethostbyname( $URL );
+			$DNSArray = dns_get_record( $URL, DNS_A );
+			
+			return $DNSArray[0]['ip'];
 
 	    }
 		
