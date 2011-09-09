@@ -4,7 +4,9 @@
 		
 		var $tasks = array(
 			'GetResponse',
-			'GetIp'
+			'GetIp',
+			'GetHtml',
+			'SearchHtml'
 		);
 		
 		var $uses = array(
@@ -13,7 +15,7 @@
 		);
 		
 		function main() {
-			
+
 		}
 		
 		function check() {
@@ -22,15 +24,32 @@
 			foreach( $this->Domain->find('all') as $Domain ) {
 				
 				$this->out( $Domain['Domain']['name'] );
+				
+				$ResponsCode = $this->GetResponse->execute( $Domain['Domain']['name'] );
+				
 				$this->setResponseCode(
 					$Domain['Domain']['id'], 
-					$this->GetResponse->execute( $Domain['Domain']['name'] ) 
+					$ResponsCode
 				);
 				
 				$this->setIpAddress(
 					$Domain['Domain']['id'], 
 					$this->GetIp->execute( $Domain['Domain']['name'] ) 
 				);
+				
+				
+				if( $ResponsCode == "200" ) {
+					$HTML = $this->GetHtml->execute( $Domain['Domain']['name'] );
+					
+					$GeneratorTag = $this->SearchHtml->execute( "/html/head/meta[@name='generator']", $HTML );
+					
+		 			if( !is_null( $GeneratorTag->item(0) ) ) {
+		 
+		 				$this->out($GeneratorTag->item(0)->getAttribute("content"));
+					
+					}
+				}
+				
 				
 			}
 			
@@ -43,7 +62,7 @@
 			
 			$this->data = $this->Domain->findById($id);
 			$this->data['Domain']['ip_address'] = $IpAddress;
-			$this->data['Domain']['updated'] = $Now->date;
+			$this->data['Domain']['updated'] = @$Now->date;
 			
 			$this->Domain->save($this->data);
 			
@@ -56,7 +75,7 @@
 			
 			$this->data = $this->Domain->findById($id);
 			$this->data['Domain']['current_response'] = $Code;
-			$this->data['Domain']['updated'] = $Now->date;
+			$this->data['Domain']['updated'] = @$Now->date;
 			
 			$this->Domain->save($this->data);
 			
