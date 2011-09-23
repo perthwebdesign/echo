@@ -4,6 +4,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('site_id');?></th>
+			<th><?php echo $this->Paginator->sort('company');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('current_response');?></th>
 			<th><?php echo $this->Paginator->sort('ip_address');?></th>
@@ -19,6 +20,7 @@
 		<td>
 			<?php echo $this->Html->link($domain['Site']['name'], array('controller' => 'sites', 'action' => 'view', $domain['Site']['id'])); ?>
 		</td>
+		<td><?php echo h($domain['Domain']['company']); ?>&nbsp;</td>
 		<td><?php echo h($domain['Domain']['name']); ?>&nbsp;</td>
 		<td><?php echo h($domain['Domain']['current_response']); ?>&nbsp;</td>
 		<td><?php echo h($domain['Domain']['ip_address']); ?>&nbsp;</td>

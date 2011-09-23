@@ -3,6 +3,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
+			<th><?php echo $this->Paginator->sort('client_id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('updated');?></th>
@@ -13,6 +14,9 @@
 	foreach ($sites as $site): ?>
 	<tr>
 		<td><?php echo h($site['Site']['id']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($site['Client']['id'], array('controller' => 'clients', 'action' => 'view', $site['Client']['id'])); ?>
+		</td>
 		<td><?php echo h($site['Site']['name']); ?>&nbsp;</td>
 		<td><?php echo h($site['Site']['created']); ?>&nbsp;</td>
 		<td><?php echo h($site['Site']['updated']); ?>&nbsp;</td>
@@ -43,6 +47,8 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Site'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Clients'), array('controller' => 'clients', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Client'), array('controller' => 'clients', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Domains'), array('controller' => 'domains', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Domain'), array('controller' => 'domains', 'action' => 'add')); ?> </li>
 	</ul>

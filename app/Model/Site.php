@@ -2,6 +2,7 @@
 /**
  * Site Model
  *
+ * @property Client $Client
  * @property Domain $Domain
  */
 class Site extends AppModel {
@@ -24,6 +25,21 @@ class Site extends AppModel {
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * belongsTo associations
+ *
+ * @var array
+ */
+	public $belongsTo = array(
+		'Client' => array(
+			'className' => 'Client',
+			'foreignKey' => 'client_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 
 /**
  * hasMany associations

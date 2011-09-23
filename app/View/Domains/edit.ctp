@@ -5,6 +5,7 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('site_id');
+		echo $this->Form->input('company');
 		echo $this->Form->input('name');
 		echo $this->Form->input('current_response');
 		echo $this->Form->input('ip_address');

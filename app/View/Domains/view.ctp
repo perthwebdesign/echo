@@ -11,6 +11,11 @@
 			<?php echo $this->Html->link($domain['Site']['name'], array('controller' => 'sites', 'action' => 'view', $domain['Site']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Company'); ?></dt>
+		<dd>
+			<?php echo h($domain['Domain']['company']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
 			<?php echo h($domain['Domain']['name']); ?>

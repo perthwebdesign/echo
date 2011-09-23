@@ -46,6 +46,8 @@ class SitesController extends AppController {
 				$this->Session->setFlash(__('The site could not be saved. Please, try again.'));
 			}
 		}
+		$clients = $this->Site->Client->find('list');
+		$this->set(compact('clients'));
 	}
 
 /**
@@ -69,6 +71,8 @@ class SitesController extends AppController {
 		} else {
 			$this->request->data = $this->Site->read(null, $id);
 		}
+		$clients = $this->Site->Client->find('list');
+		$this->set(compact('clients'));
 	}
 
 /**

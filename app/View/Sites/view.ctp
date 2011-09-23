@@ -6,6 +6,11 @@
 			<?php echo h($site['Site']['id']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Client'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($site['Client']['id'], array('controller' => 'clients', 'action' => 'view', $site['Client']['id'])); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
 			<?php echo h($site['Site']['name']); ?>
@@ -30,6 +35,8 @@
 		<li><?php echo $this->Form->postLink(__('Delete Site'), array('action' => 'delete', $site['Site']['id']), null, __('Are you sure you want to delete # %s?', $site['Site']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Sites'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Site'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Clients'), array('controller' => 'clients', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Client'), array('controller' => 'clients', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Domains'), array('controller' => 'domains', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Domain'), array('controller' => 'domains', 'action' => 'add')); ?> </li>
 	</ul>
@@ -41,7 +48,10 @@
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Site Id'); ?></th>
+		<th><?php echo __('Company'); ?></th>
 		<th><?php echo __('Name'); ?></th>
+		<th><?php echo __('Current Response'); ?></th>
+		<th><?php echo __('Ip Address'); ?></th>
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Updated'); ?></th>
 		<th class="actions"><?php echo __('Actions');?></th>
@@ -52,7 +62,10 @@
 		<tr>
 			<td><?php echo $domain['id'];?></td>
 			<td><?php echo $domain['site_id'];?></td>
+			<td><?php echo $domain['company'];?></td>
 			<td><?php echo $domain['name'];?></td>
+			<td><?php echo $domain['current_response'];?></td>
+			<td><?php echo $domain['ip_address'];?></td>
 			<td><?php echo $domain['created'];?></td>
 			<td><?php echo $domain['updated'];?></td>
 			<td class="actions">
